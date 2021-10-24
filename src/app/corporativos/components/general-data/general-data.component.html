@@ -1,0 +1,112 @@
+<!-- general-data content starts -->
+<div class="mt-2" 
+     id="account">
+<!-- Media object starts -->
+<div class="media">
+    <img [src]="corporativo.S_LogoURL" alt="user edit avatar"
+    class="users-avatar-shadow mr-3" height="84" width="84">
+    <div class="media-body">
+        <h4>
+            {{ corporativo?.S_NombreCorto }}
+        </h4>
+    </div>
+</div>
+<!-- Media object ends -->
+
+<!-- general-data form starts -->
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">NOMBRE CORTO *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Nombre corto"
+                           formControlName="shortName">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">NOMBRE COMPLETO *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Nombre completo"
+                           formControlName="fullName">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">STATUS *</label>
+                    <select id="users-edit-status" 
+                            class="form-control"
+                            formControlName="status">
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">FECHA DE INCORPORACIÓN *</label>
+                    <div class="input-group">
+                        <input class="form-control" 
+                               placeholder="yyyy-mm-dd" 
+                               ngbDatepicker 
+                               #d3="ngbDatepicker"
+                               formControlName="incorporationDate">
+                        <div class="input-group-append">
+                          <div class="input-group-text" (click)="d3.toggle()">
+                            <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">URL DEL SISTEMA *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Nombre corto"
+                           [value]="corporativo?.S_SystemUrl"
+                           disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-3 mt-sm-2">
+            <button class="btn btn-secondary mr-sm-2 mb-2 mb-sm-0"
+                    (click)="onClickLeftButton()"
+                    >
+                {{
+                    detailMode ? 'Regresar' : 'Cancelar'
+                }}
+            </button>
+            <button 
+                    class="btn btn-primary"
+                    (click)="onClickRightButton()">
+                {{
+                    detailMode ? 'Editar' : 'Guardar Cambios'
+                }}
+            </button>
+        </div>
+    </div>
+</form>
+<!-- general-data form ends -->
+</div>
+<!-- general-data content ends -->

@@ -1,0 +1,59 @@
+<!-- general-data content starts -->
+<div class="mt-2" 
+     id="account">
+<!-- Media object starts -->
+<div class="media">
+    <img [src]="corporativo.S_LogoURL" alt="user edit avatar"
+    class="users-avatar-shadow mr-3" height="84" width="84">
+    <div class="media-body">
+        <h4>
+            {{ corporativo.S_NombreCorto }}
+        </h4>
+    </div>
+</div>
+<!-- Media object ends -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body" style="padding: 0;">
+              <ngx-datatable class="bootstrap core-bootstrap" [columnMode]="ColumnMode.force" [headerHeight]="50"
+                [footerHeight]="50" rowHeight="auto" [limit]="50" [rows]="(contactos$ | async)" [scrollbarH]="true"
+                [columns]="columns">
+                <ngx-datatable-column name="NOMBRE" prop="S_Nombre" [width]="170">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="PUESTO" prop="S_Puesto" [width]="100">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="TELÉFONO" prop="N_TelefonoFijo" [width]="70">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="CELULAR" prop="N_TelefonoMovil" [width]="70"></ngx-datatable-column>
+                <ngx-datatable-column name="EMAIL" prop="S_Email" [width]="70">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="OBSERVACIONES" prop="S_Comentarios" [width]="70"></ngx-datatable-column>
+                <ngx-datatable-column name="ACCIONES" [width]="50">
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div class="d-flex justify-content-center">
+                      <a (click)="onClickEdit(row)">
+                        <i class="icon-button ft-edit text-primary cursor-pointer mr-1"
+                           title="Editar"></i>
+                      </a>
+                      <a (click)="delete(row.id)">
+                          <i class="icon-button ft-trash-2 text-secondary cursor-pointer"
+                            title="Eliminar">
+                          </i>
+                      </a>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+              <!-- ngx-datatable-filter -->
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<app-contact-form [data]="currentContact"
+                  (onSave)="onSaveContact()"></app-contact-form>
+<!-- general-data form ends -->
+</div>
+<!-- general-data content ends -->

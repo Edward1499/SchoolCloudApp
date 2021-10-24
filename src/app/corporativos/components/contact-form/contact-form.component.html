@@ -1,0 +1,94 @@
+<!-- general-data form starts -->
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">NOMBRE *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Nombre"
+                           formControlName="name">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">PUESTO *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Puesto"
+                           formControlName="position">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">COMENTARIOS</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Comentarios"
+                           formControlName="comments">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">TELÉFONO FIJO *</label>
+                    <input type="number" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Telefono fijo"
+                           formControlName="telephone">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">TELÉFONO MOVIL *</label>
+                    <input type="number" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Telefono movil"
+                           formControlName="cellphone">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label for="users-edit-username">EMAIL *</label>
+                    <input type="text" 
+                           id="users-edit-username" 
+                           class="form-control" 
+                           placeholder="Email"
+                           formControlName="email">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <div class="controls">
+                    <label></label>
+                    <button type="submit"
+                            class="btn btn-secondary d-block">
+                        {{
+                            contact ? 'Actualizar contacto' : 'Agregar contacto'
+                        }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- general-data form ends -->
